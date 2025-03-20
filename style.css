@@ -1,0 +1,68 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+main{
+    background-image: url(./img/image\ 4.png);
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+}
+#cardlogin{
+    background-color: #1F112A;
+    padding: 2rem;
+    gap: 5px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    justify-content: space-evenly;
+    font-family: "Jersey 10", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+#cardlogin img{
+    width: 7rem;
+}
+#dados{
+    color: white;
+    display: flex;
+    height: auto;
+    width: 100%;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+#dados #forgot{
+    font-size: 10px;
+    color: #DEC8EF;
+}
+input{
+    color: #ffffff;
+    background-color: #422B54;
+    border-radius: 6px;
+    border: solid #DEC8EF;
+    padding: 5px;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 10px;
+}
+button{
+    background-color: #DEC8EF;
+    color: #422B54;
+    cursor: pointer;
+    border-radius: 6px;
+    padding: 10px 32px;
+    font-family: "Jersey 10", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 20px;
+    border: solid #000000;
+}
+a{
+    color: #ffffff;  
+    font-size: 15px;  
+}
