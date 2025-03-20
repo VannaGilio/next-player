@@ -1,8 +1,18 @@
 'use strict'
 
-const message =require('../../messages/messageerro.js')
+//import message from ('../../messages/messageerro.js')
+document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById('login').addEventListener('click', async () => {
+    
+    const email = document.getElementById('email')?.value || ""
+    const senha = document.getElementById('senha')?.value || ""
 
-const verificar = async (email, senha) =>{
+    const resultado = await logar(email, senha)
+    console.log(resultado)
+    })
+})
+
+const logar = async (email, senha) =>{
     const url = `https://back-spider.vercel.app/login`
     const data = {
         email: email,
@@ -13,7 +23,7 @@ const verificar = async (email, senha) =>{
         if(email === "" || email === null || email === undefined ||
             senha === "" || senha === null || senha === undefined 
         ){
-            return message.ERROR_REQUIRED_FIELDS //400
+            return console.error('error') //message.ERROR_REQUIRED_FIELDS //400
         }else{
             //retorna a menssage para o post
             const options = {
@@ -24,11 +34,16 @@ const verificar = async (email, senha) =>{
                 body: JSON.stringify(data)
         }
         const response = await fetch(url, options)
-        const result = await response.json()
 
+        if (!response.ok) {
+            console.error("Erro na requisição:", response)
+            return message.ERROR_NOT_FOUND // 404
+        }
+        const result = await response.json()
         return result 
         }
     } catch (error) {
-        return ERROR_NOT_FOUND //404
+        console.error("Erro ao tentar logar:", error)
+        return console.error('error')  //message.ERROR_NOT_FOUND //404
     }
 }

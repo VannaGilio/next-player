@@ -12,6 +12,10 @@ main{
     justify-content: center;
     background-color: black;
 }
+#dados{
+    width: 100%;
+    padding: 2rem;
+}
 #container{
     background-color: #1F112A;
     border-radius: 20px;
