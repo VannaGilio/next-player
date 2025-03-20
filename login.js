@@ -23,7 +23,8 @@ const logar = async (email, senha) =>{
         if(email === "" || email === null || email === undefined ||
             senha === "" || senha === null || senha === undefined 
         ){
-            return console.error('error') //message.ERROR_REQUIRED_FIELDS //400
+            console.error('error') //message.ERROR_REQUIRED_FIELDS //400
+            return false
         }else{
             //retorna a menssage para o post
             const options = {
@@ -37,10 +38,11 @@ const logar = async (email, senha) =>{
 
         if (!response.ok) {
             console.error("Erro na requisição:", response)
-            return message.ERROR_NOT_FOUND // 404
+            return false
+            console.log('vsfd') // 404
         }
         const result = await response.json()
-        return result 
+        return result && console.log('culpa sua cu de apito')
         }
     } catch (error) {
         console.error("Erro ao tentar logar:", error)
