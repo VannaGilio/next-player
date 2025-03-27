@@ -10,14 +10,14 @@ document.addEventListener("DOMContentLoaded", () => {
     })
 })
 
-const verificarsenha = async (senha) =>{
+const verificarsenha = async (newPassword) =>{
     const url = `https://back-spider.vercel.app/user/newPassword/2`
     const data = {
         senha:newPassword
     }
     try {
         //verifica os dados
-        if(novasenha === "" || novasenha === null || newpassword === undefined ){
+        if(newPassword === "" || newPassword === null || newPassword === undefined ){
             console.error('Campos obrigatórios não preenchidos') //message.ERROR_REQUIRED_FIELDS //400
             return false
         }else{
@@ -36,7 +36,7 @@ const verificarsenha = async (senha) =>{
                 // 404
             }else{
                 const result = await response.json()
-                window.location.href = "./index.js"
+                window.location.href = "./index.html"
                 // return result ('deu certo')
         }
         }

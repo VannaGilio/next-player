@@ -1,4 +1,4 @@
-'use-strict'
+"use strict"
 
 document.addEventListener("DOMContentLoaded", () => {
     document.getElementById('trade').addEventListener('click', async () => {
@@ -35,6 +35,7 @@ const verificarsenha = async (email, wordKey) =>{
             }
 
             const response = await fetch(url, options)
+            console.log(response)
             
 
             if (!response.ok) {
@@ -42,14 +43,13 @@ const verificarsenha = async (email, wordKey) =>{
                 return false
                 // 404
             }else{
-                const result = await response.json()
-                window.location.href = "./trocarsenha"
-               
+                window.location.href = "./trocarsenha.html"
+
                 // return result ('deu certo')
         }
         }
     } catch (error) {
         console.error("Erro ao tentar logar:", error)
-        return console.error('error')  //message.ERROR_NOT_FOUND 404
+        return console.error("Erro ao tentar recuperar senha:", error)  //message.ERROR_NOT_FOUND 404
     }
 }
