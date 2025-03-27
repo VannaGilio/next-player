@@ -10,21 +10,23 @@ document.addEventListener("DOMContentLoaded", () => {
         const senha = document.getElementById('senha')?.value || ""
         const premium = document.getElementById('premium')?.value || ""
         const imagemPerfil = document.getElementById('profilePicture')?.value || ""
+        const senhaRecuperacao = document.getElementById('key_word')?.value || ""
 
 
-        const resultado = await criar(nome, email, senha, premium, imagemPerfil)
-        
-        })
+        const resultado = await criar(nome, email, senha, premium, imagemPerfil, senhaRecuperacao)
+        console.log(resultado)
+    })
 })
 
-const criar = async (nome, email, senha, premium, imagemPerfil) =>{
+const criar = async (nome, email, senha, premium, imagemPerfil, senhaRecuperacao) =>{
     const url = `https://back-spider.vercel.app/user/cadastrarUser`
     const data = {
         nome: nome,
         email: email,
         senha: senha,
         premium: premium,
-        imagemPerfil: imagemPerfil
+        imagemPerfil: imagemPerfil,
+        senhaRecuperacao: senhaRecuperacao
     }
     console.log(data)
     try {
@@ -37,7 +39,6 @@ const criar = async (nome, email, senha, premium, imagemPerfil) =>{
         ){
             //return message.ERROR_REQUIRED_FIELDS
 
-            console.log('chora mais giovanna')
             return false
         }else{
             //retorna a menssage para o post
@@ -54,11 +55,11 @@ const criar = async (nome, email, senha, premium, imagemPerfil) =>{
             return false
         }else{
             const result = await response.json()
-            return console.log('DEU CERTO', result)
+            window.location.href = './index.html'; // Caminho relativo para uma página interna
+            return result ('deu certo')
         }
         }
     } catch (error) {
-        console.log('chora menos giovanna')
         return false
         //return message.ERROR_NOT_FOUND
     }

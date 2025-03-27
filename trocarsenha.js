@@ -1,51 +1,42 @@
-'use strict'
+'use-strict'
 
-//import message from ('../../messages/messageerro.js')
 document.addEventListener("DOMContentLoaded", () => {
-    document.getElementById('login').addEventListener('click', async () => {
+    document.getElementById('trade').addEventListener('click', async () => {
     
-    const email = document.getElementById('email')?.value || ""
-    const senha = document.getElementById('senha')?.value || ""
+    const newPassword = document.getElementById('newpassword')?.value || ""
 
-    const resultado = await logar(email, senha)
+    const resultado = await verificarsenha(newPassword)
     console.log(resultado)
     })
 })
 
-const logar = async (email, senha) =>{
-    const url = `https://back-spider.vercel.app/login`
+const verificarsenha = async (senha) =>{
+    const url = `https://back-spider.vercel.app/user/newPassword/2`
     const data = {
-        email: email,
-        senha: senha
+        senha:newPassword
     }
     try {
         //verifica os dados
-        if(email === "" || email === null || email === undefined ||
-            senha === "" || senha === null || senha === undefined 
-        ){
+        if(novasenha === "" || novasenha === null || newpassword === undefined ){
             console.error('Campos obrigatórios não preenchidos') //message.ERROR_REQUIRED_FIELDS //400
             return false
         }else{
             //retorna a menssage para o post
             const options = {
-                method: "POST",
+                method: "PUT",
                 headers: {
                      "Content-Type": "application/json"
                 },
                 body: JSON.stringify(data)
             }
-
             const response = await fetch(url, options)
-            
-
             if (!response.ok) {
                 console.error("Erro na requisição:", response)
                 return false
                 // 404
             }else{
                 const result = await response.json()
-                window.location.href = "./home.html"
-               
+                window.location.href = "./index.js"
                 // return result ('deu certo')
         }
         }

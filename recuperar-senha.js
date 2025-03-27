@@ -1,27 +1,26 @@
-'use strict'
+'use-strict'
 
-//import message from ('../../messages/messageerro.js')
 document.addEventListener("DOMContentLoaded", () => {
-    document.getElementById('login').addEventListener('click', async () => {
+    document.getElementById('trade').addEventListener('click', async () => {
     
     const email = document.getElementById('email')?.value || ""
-    const senha = document.getElementById('senha')?.value || ""
+    const wordKey = document.getElementById('wordKey')?.value || ""
 
-    const resultado = await logar(email, senha)
+    const resultado = await verificarsenha(email, wordKey)
     console.log(resultado)
     })
 })
 
-const logar = async (email, senha) =>{
-    const url = `https://back-spider.vercel.app/login`
+const verificarsenha = async (email, wordKey) =>{
+    const url = `https://back-spider.vercel.app/user/RememberPassword`
     const data = {
         email: email,
-        senha: senha
+        wordKey: wordKey
     }
     try {
         //verifica os dados
         if(email === "" || email === null || email === undefined ||
-            senha === "" || senha === null || senha === undefined 
+            wordKey === "" || wordKey === null || wordKey === undefined 
         ){
             console.error('Campos obrigatórios não preenchidos') //message.ERROR_REQUIRED_FIELDS //400
             return false
@@ -44,7 +43,7 @@ const logar = async (email, senha) =>{
                 // 404
             }else{
                 const result = await response.json()
-                window.location.href = "./home.html"
+                window.location.href = "./trocarsenha"
                
                 // return result ('deu certo')
         }
