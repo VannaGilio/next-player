@@ -1,0 +1,59 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+h1, h2, p, a{
+    color: white;
+    font-family: "Jersey 10", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+main{
+    display: flex;
+}
+.lateral{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 20%;
+    background-color: #1F112A;
+}
+.meuperfil{
+    padding: 1rem;
+    align-items: center;
+    gap: 10px;
+
+    display: flex;
+}
+.meuperfil img{
+    border-radius: 100%;
+    height: 2rem;
+    
+    width: 2rem;
+}
+.perfil{
+    min-height: 100vh;
+    background-color: #1F112A;
+    width: 100%;
+}
+#info{
+    padding-inline-start: 2rem;
+}
+#entrada{
+    width: 100%;
+
+}
+#backimg{
+    width: 100%;
+    height: 25vh;
+}
+#fotoperfil {
+    position: absolute;
+    top: 11rem; /* Ajuste a posição para que a foto de perfil fique sobre o fundo */
+    left: 20%; /* Centraliza a foto de perfil horizontalmente */
+    border-radius: 50%;
+    height: 6rem; /* Tamanho da foto de perfil */
+    width: 6rem;
+    border: 3px solid white; /* Adiciona uma borda para destacar a foto de perfil */
+}

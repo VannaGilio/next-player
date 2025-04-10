@@ -1,5 +1,39 @@
 'use strict'
 
+
+//Local Storege para a perfil  //////////////////////////////////////////////////
+document.getElementById('login').addEventListener('click', async () => {
+    const dados = () =>{
+        let email=document.getElementById('email').value
+        let senha = document.getElementById('senha').value
+
+    let dados = obterdados(email, senha)
+    return dados
+}   
+})
+
+const obterdados= async (email, senha) =>{
+    let usuarioEncontrado
+    const url = `https://back-spider.vercel.app/user/listarUsers`
+    const resultado = await fetch(url)
+    const dados = await response.json()
+    dados.api.forEach(user => {
+        if (user.email === email && !usuarioEncontrado) {
+            usuarioEncontrado = user
+        }
+    })
+    if (usuarioEncontrado){
+        return usuarioEncontrado
+    }else{
+        console.log("Usuario não encontrado")
+    }
+}
+
+
+
+
+/////////////////////////////////////////////////////////////////////////////////
+
 //import message from ('../../messages/messageerro.js')
 document.addEventListener("DOMContentLoaded", () => {
     document.getElementById('login').addEventListener('click', async () => {
