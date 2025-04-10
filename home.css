@@ -6,29 +6,104 @@
 html, body{ 
     scroll-behavior: smooth;
 }
-body{}
+body{
+    background-color: #1F112A;
+}
+
+ul, ol, li{
+    list-style: none;
+}
 
 .container{
     width: 100%;
-    max-width: 1200px;
+    max-width: 990px;
     margin: 0 auto;
-    display: flex; 
+    display: flex;
 }
 
-.conteudo-header{}
-.logo-header{}
-.header-menu-nav{}
-.menu-lista{}
-.menu-lista a{}
+.conteudo-header{
+    flex-basis: 30%;
+}
+.logo-header{
+    margin-bottom: 20px;
+}
+.logo-header img{}
+.logo-header figcaption{
+    display: none;
+}
+.header-menu-nav{
+}
+.menu-lista li{
+    margin-bottom: 1.5rem;
+}
+.menu-lista a{
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-size: 22px;
+}
 
-.conteudo-principal{}
-.conteudo-principal-titulo{}
-.conteudo-principal-form{}
-.conteudo-principal-form textarea{}
-.conteudo-principal-form button{}
+.conteudo-principal{
+    flex-basis: 70%;
+    border-left: 2px solid #483358;
+    border-right: 2px solid #483358;
+}
+.conteudo-principal-titulo{
+    padding: 10px 30px;
+    color: #ffffff;
+}
+.conteudo-principal-form{
+    padding: 10px 30px;
+    border-top: 2px solid #483358;
+    text-align: right;
+    background-color: #483358;
+}
+.conteudo-principal-form textarea{
+    display: block;
+    width: 100%;
+    outline: none;
+    border: #483358;
+    resize: none;
+    height: 70px;
+    background-color: #1F112A;
+    border-radius: 1rem;
+    padding: 10px;
+}
+.conteudo-principal-form button{
+    background-color: #1F112A;
+    border: none;
+    padding: 8px 30px;
+    color: aliceblue;
+    border-radius: 2rem;
+    margin-top: 10px;
+}
 
 .conteudo-postagem-feed{}
 .conteudo-postagem-lista{}
-.conteudo-postagem{}
-.foto-perfil-postagem{}
-.conteudo-da-postagem{}
+.conteudo-postagem{
+    padding: 20px 30px;
+    display: flex;
+    align-items: flex-start;
+}
+.foto-perfil-postagem{
+    width: 50px;
+}
+.conteudo-da-postagem{
+    margin-left: 1rem;
+}
+.conteudo-da-postagem h2{
+    display: inline-block;
+    color: #ffffff;
+}
+.conteudo-da-postagem span{
+    display: inline-block;
+    color: #cfbfdb;
+}
+.conteudo-da-postagem p{
+    margin-top: 15px;
+    color: #ffffff;
+}
+.conteudo-postagem {
+    background-color: #483358;
+    border-radius: 1rem;
+    margin: 2rem;
+}
