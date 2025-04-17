@@ -90,7 +90,7 @@ async function criartela(usuario, post) {
         comentarios.appendChild(perfilcomentario)
 
         const img = document.createElement('img')
-        img.src=usuario.nome
+        img.src=usuario.imagemPerfil
         comentarios.appendChild(img)
 
         const h1comentario = document.createElement('h1')
@@ -101,6 +101,7 @@ async function criartela(usuario, post) {
         comentario.classList.add('comentario')
 
         const imgcomentario = document.createElement('img')
+        imgcomentario.classList.add('fotocoments')
         img.src=publicacao.imagem || './img/background.jpg'
         const pcomentario = document.createElement('p')
         pcomentario.textContent=publicacao.descricao
@@ -108,6 +109,7 @@ async function criartela(usuario, post) {
         comentario.appendChild(imgcomentario)
         comentario.appendChild(pcomentario)
 
+        perfil.appendChild(comentarios)
         perfil.appendChild(comentario)
     });
     
