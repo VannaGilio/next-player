@@ -1,17 +1,5 @@
 'use strict'
 
-
-//Local Storege para a perfil  //////////////////////////////////////////////////
-document.getElementById('login').addEventListener('click', async () => {
-    const dados = () =>{
-        let email=document.getElementById('email').value
-        let senha = document.getElementById('senha').value
-
-    let dados = obterdados(email, senha)
-    return dados
-}   
-})
-
 const obterdados= async (email, senha) =>{
     let usuarioEncontrado
     const url = `https://back-spider.vercel.app/user/listarUsers`
@@ -78,6 +66,9 @@ const logar = async (email, senha) =>{
                 // 404
             }else{
                 const result = await response.json()
+                localStorage.setItem('id', result.user.id)
+
+                // Agora redirecionamos para o perfil.html
                 window.location.href = "./home.html"
                
                 // return result ('deu certo')
@@ -88,3 +79,4 @@ const logar = async (email, senha) =>{
         return console.error('error')  //message.ERROR_NOT_FOUND 404
     }
 }
+
