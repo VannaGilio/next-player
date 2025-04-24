@@ -2,6 +2,8 @@
 
 //import message from ('../../messages/messageerro.js')
 
+
+
 document.addEventListener("DOMContentLoaded", () => {
     document.getElementById('register').addEventListener('click', async () => {
    

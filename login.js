@@ -1,5 +1,27 @@
 'use strict'
 
+const obterdados= async (email, senha) =>{
+    let usuarioEncontrado
+    const url = `https://back-spider.vercel.app/user/listarUsers`
+    const resultado = await fetch(url)
+    const dados = await response.json()
+    dados.api.forEach(user => {
+        if (user.email === email && !usuarioEncontrado) {
+            usuarioEncontrado = user
+        }
+    })
+    if (usuarioEncontrado){
+        return usuarioEncontrado
+    }else{
+        console.log("Usuario não encontrado")
+    }
+}
+
+
+
+
+/////////////////////////////////////////////////////////////////////////////////
+
 //import message from ('../../messages/messageerro.js')
 document.addEventListener("DOMContentLoaded", () => {
     document.getElementById('login').addEventListener('click', async () => {
@@ -44,6 +66,9 @@ const logar = async (email, senha) =>{
                 // 404
             }else{
                 const result = await response.json()
+                localStorage.setItem('id', result.user.id)
+
+                // Agora redirecionamos para o perfil.html
                 window.location.href = "./home.html"
                
                 // return result ('deu certo')
@@ -54,3 +79,4 @@ const logar = async (email, senha) =>{
         return console.error('error')  //message.ERROR_NOT_FOUND 404
     }
 }
+
