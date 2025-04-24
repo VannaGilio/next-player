@@ -167,7 +167,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     try {
         const response = await fetch('https://back-spider.vercel.app/user/listarUsers')
         const usuarios = await response.json()
-        const usuario = usuarios.find(user => user.id == idUsuarioLogado)
+        const usuario = usuarios(user => user.id == idUsuarioLogado)
 
         if (usuario) {
             console.log("Usuário logado:", usuario.nome)
