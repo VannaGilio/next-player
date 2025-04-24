@@ -1,63 +1,76 @@
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
-html, body{ 
+
+html,
+body {
     scroll-behavior: smooth;
 }
-body{
+
+body {
     background-color: #1F112A;
 }
 
-ul, ol, li{
+ul,
+ol,
+li {
     list-style: none;
 }
 
-.container{
+.container {
     width: 100%;
     max-width: 990px;
     margin: 0 auto;
     display: flex;
 }
 
-.conteudo-header{
+.conteudo-header {
     flex-basis: 30%;
 }
-.logo-header{
+
+.logo-header {
     margin-bottom: 20px;
 }
-.logo-header img{}
-.logo-header figcaption{
+
+.logo-header img {}
+
+.logo-header figcaption {
     display: none;
 }
-.header-menu-nav{
-}
-.menu-lista li{
+
+.header-menu-nav {}
+
+.menu-lista li {
     margin-bottom: 1.5rem;
 }
-.menu-lista a{
+
+.menu-lista a {
     color: rgb(255, 255, 255);
     text-decoration: none;
     font-size: 22px;
 }
 
-.conteudo-principal{
+.conteudo-principal {
     flex-basis: 70%;
     border-left: 2px solid #483358;
     border-right: 2px solid #483358;
 }
-.conteudo-principal-titulo{
+
+.conteudo-principal-titulo {
     padding: 10px 30px;
     color: #ffffff;
 }
-.conteudo-principal-form{
+
+.conteudo-principal-form {
     padding: 10px 30px;
     border-top: 2px solid #483358;
     text-align: right;
     background-color: #483358;
 }
-.conteudo-principal-form textarea{
+
+.conteudo-principal-form textarea {
     display: block;
     width: 100%;
     outline: none;
@@ -68,7 +81,8 @@ ul, ol, li{
     border-radius: 1rem;
     padding: 10px;
 }
-.conteudo-principal-form button{
+
+.conteudo-principal-form button {
     background-color: #1F112A;
     border: none;
     padding: 8px 30px;
@@ -77,33 +91,133 @@ ul, ol, li{
     margin-top: 10px;
 }
 
-.conteudo-postagem-feed{}
-.conteudo-postagem-lista{}
-.conteudo-postagem{
+.conteudo-postagem-feed {}
+
+.conteudo-postagem-lista {}
+
+.conteudo-postagem {
     padding: 20px 30px;
     display: flex;
     align-items: flex-start;
 }
-.foto-perfil-postagem{
+
+.foto-perfil-postagem {
     width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
 }
-.conteudo-da-postagem{
+
+.conteudo-da-postagem {
     margin-left: 1rem;
 }
-.conteudo-da-postagem h2{
+
+.conteudo-da-postagem h2 {
     display: inline-block;
     color: #ffffff;
 }
-.conteudo-da-postagem span{
+
+.conteudo-da-postagem span {
     display: inline-block;
     color: #cfbfdb;
 }
-.conteudo-da-postagem p{
+
+.conteudo-da-postagem p {
     margin-top: 15px;
     color: #ffffff;
 }
+
 .conteudo-postagem {
     background-color: #483358;
     border-radius: 1rem;
     margin: 2rem;
+}
+
+.imagem-postagem {
+    max-width: 100%;
+    margin-top: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.lista-comentarios {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+}
+
+.lista-comentarios li {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 8px;
+    background-color: #f3f3f3;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.lista-comentarios img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.lista-comentarios strong {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 3px;
+}
+
+.comente{
+    display: flex;
+    justify-content: space-between;
+}
+
+form input[type="text"] {
+    flex: 1;
+    padding: 8px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+
+form button {
+    background-color: #33243e;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+form button:hover {
+    background-color: #1c1124;
+}
+.perfil-logado {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-radius: 12px;
+    max-width: 300px;
+    margin: 20px auto;
+}
+
+.perfil-logado img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ffffff;
+}
+
+.perfil-logado span {
+    font-size: 16px;
+    font-weight: lighter;
+    color: #ffffff;    
+    font-family: 'Arial', sans-serif;
 }
