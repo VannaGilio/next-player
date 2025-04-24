@@ -1,5 +1,7 @@
 'use-strict'
 
+const idUsuario = localStorage.getItem('idUsuario')
+
 document.addEventListener("DOMContentLoaded", () => {
     document.getElementById('trade').addEventListener('click', async () => {
     
@@ -10,38 +12,44 @@ document.addEventListener("DOMContentLoaded", () => {
     })
 })
 
-const verificarsenha = async (newPassword) =>{
-    const url = `https://back-spider.vercel.app/user/newPassword/2`
-    const data = {
-        senha:newPassword
-    }
+
+
+const verificarsenha = async (newPassword) => {
+    const idUsuario = localStorage.getItem('idUsuario')
+    const url = `https://back-spider.vercel.app/user/newPassword/${idUsuario}`
+    const data = { senha: newPassword }
+
     try {
-        //verifica os dados
-        if(newPassword === "" || newPassword === null || newPassword === undefined ){
-            console.error('Campos obrigatórios não preenchidos') //message.ERROR_REQUIRED_FIELDS //400
+        if (!newPassword) {
+            console.error('Senha não informada.')
             return false
-        }else{
-            //retorna a menssage para o post
-            const options = {
-                method: "PUT",
-                headers: {
-                     "Content-Type": "application/json"
-                },
-                body: JSON.stringify(data)
-            }
-            const response = await fetch(url, options)
-            if (!response.ok) {
-                console.error("Erro na requisição:", response)
-                return false
-                // 404
-            }else{
-                const result = await response.json()
-                window.location.href = "./index.html"
-                // return result ('deu certo')
         }
+
+        const options = {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
         }
+
+        console.log("URL:", url)
+        console.log("Payload:", data)
+
+        const response = await fetch(url, options)
+
+        if (!response.ok) {
+            const erroTexto = await response.text()
+            console.error("Erro na requisição:", response.status, erroTexto)
+            return false
+        }
+
+        const result = await response.json()
+        console.log("Senha atualizada com sucesso:", result)
+        window.location.href = "./index.html"
+
     } catch (error) {
-        console.error("Erro ao tentar logar:", error)
-        return console.error('error')  //message.ERROR_NOT_FOUND 404
+        console.error("Erro ao tentar atualizar senha:", error)
+        return false
     }
 }
