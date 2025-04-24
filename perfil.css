@@ -66,6 +66,12 @@ main{
     display: flex;
     align-items: center;
     flex-direction: column;
+    gap: 2rem;
+}
+
+.comentarios img{
+    height: 30vh;
+    width: 20vw;
 }
 
 .perfilcomentario{
@@ -73,7 +79,7 @@ main{
     background-color: #604476;
     gap: 1rem;
     padding: 0.5rem;
-    width: 50%;
+    width: 100%;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
 }
@@ -84,17 +90,14 @@ main{
 }
 .comentario{
     background-color: #604476;
-    gap: 1rem;
+    gap: 2rem;
     padding: 0.5rem;
     display: flex;
     word-break: break-all;
-    max-width: 50%;
+    width: 100%;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
-}
-.fotocoments{
-    height: 1rem;
-    width: 1rem;
+
 }
 
 @media (max-width:1910px){

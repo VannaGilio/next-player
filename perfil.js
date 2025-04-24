@@ -1,7 +1,7 @@
 'use strict'
 
 async function loaderPost() {
-    const usuarioId =  '2' //localStorage.getItem('id')
+    const usuarioId = localStorage.getItem('id')
     if (!usuarioId) {
         console.error("ID de usuário não encontrado no localStorage")
         return null  
@@ -81,37 +81,78 @@ async function criartela(usuario, post) {
 
     perfil.appendChild(info)
 
-    const comentarios = document.createElement('div')
-    comentarios.classList.add('comentarios')
-    post.forEach(publicacao=> {
+
+    const comentariospai = document.createElement('div')
+    comentariospai.classList.add('comentarios')
+    perfil.appendChild(comentariospai)
+    post.forEach(publicacao => {
         const perfilcomentario = document.createElement('div')
         perfilcomentario.classList.add('perfilcomentario')
 
-        comentarios.appendChild(perfilcomentario)
+        const intermediario = document.createElement('div')
 
-        const img = document.createElement('img')
-        img.src=usuario.imagemPerfil
-        comentarios.appendChild(img)
+        const imgperfil2 = document.createElement('img')
+        imgperfil2.src=usuario.imagemPerfil
 
-        const h1comentario = document.createElement('h1')
-        h1comentario.textContent=usuario.nome
-        comentarios.appendChild(h1comentario)
+        const nick = document.createElement('h1')
+        nick.textContent=usuario.nome
+
+        perfilcomentario.appendChild(imgperfil2)
+        perfilcomentario.appendChild(nick)
 
         const comentario = document.createElement('div')
         comentario.classList.add('comentario')
 
         const imgcomentario = document.createElement('img')
-        imgcomentario.classList.add('fotocoments')
-        img.src=publicacao.imagem || './img/background.jpg'
-        const pcomentario = document.createElement('p')
-        pcomentario.textContent=publicacao.descricao
+        imgcomentario.src=publicacao.imagem
+
+        const p = document.createElement('p')
+        p.textContent=publicacao.descricao
 
         comentario.appendChild(imgcomentario)
-        comentario.appendChild(pcomentario)
+        comentario.appendChild(p)
 
-        perfil.appendChild(comentarios)
-        perfil.appendChild(comentario)
+
+
+        intermediario.appendChild(perfilcomentario)
+        intermediario.appendChild(comentario)
+
+        comentariospai.appendChild(intermediario)
+        
     });
+
+    // const comentarios = document.createElement('div')
+    // comentarios.classList.add('comentarios')
+    // post.forEach(publicacao=> {
+    //     const perfilcomentario = document.createElement('div')
+    //     perfilcomentario.classList.add('perfilcomentario')
+
+    //     comentarios.appendChild(perfilcomentario)
+
+    //     const img = document.createElement('img')
+    //     img.src=usuario.imagemPerfil
+    //     comentarios.appendChild(img)
+
+    //     const h1comentario = document.createElement('h1')
+    //     h1comentario.textContent=usuario.nome
+    //     comentarios.appendChild(h1comentario)
+
+    //     const comentario = document.createElement('div')
+    //     comentario.classList.add('comentario')
+
+    //     const imgcomentario = document.createElement('img')
+    //     imgcomentario.classList.add('fotocoments')
+    //     img.src=publicacao.imagem || './img/background.jpg'
+    //     const pcomentario = document.createElement('p')
+    //     pcomentario.textContent=publicacao.descricao
+
+    //     perfilcomentario.appendChild(imgcomentario)
+    //     perfilcomentario.appendChild(pcomentario)
+        
+
+    //     comentarios.appendChild(comentario)
+    //     perfil.appendChild(comentarios)
+    // });
     
 
 }
