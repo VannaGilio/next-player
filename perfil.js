@@ -15,7 +15,7 @@ async function loaderPost() {
     return postsDoUsuario
 }
 async function loaderPerfil() {
-    const usuarioId =  '2' //localStorage.getItem('id')
+    const usuarioId =  localStorage.getItem('id')
     if (!usuarioId) {
         console.error("ID de usuário não encontrado no localStorage")
         return null  
