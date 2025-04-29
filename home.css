@@ -27,14 +27,15 @@ li {
 }
 
 .conteudo-header {
-    flex-basis: 30%;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .logo-header {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
-
-.logo-header img {}
 
 .logo-header figcaption {
     display: none;
@@ -53,7 +54,7 @@ li {
 }
 
 .conteudo-principal {
-    flex-basis: 70%;
+    flex-basis: 100%;
     border-left: 2px solid #483358;
     border-right: 2px solid #483358;
 }
@@ -86,7 +87,7 @@ li {
     background-color: #1F112A;
     border: none;
     padding: 8px 30px;
-    color: aliceblue;
+    color: rgb(255, 255, 255);
     border-radius: 2rem;
     margin-top: 10px;
 }
@@ -181,22 +182,27 @@ form input[type="text"] {
     flex: 1;
     padding: 8px;
     border-radius: 20px;
-    border: 1px solid #ccc;
+    border: none;
+    color: #ffffff;
     outline: none;
+    background-color: #1F112A;
+    
 }
 
 form button {
-    background-color: #33243e;
-    color: white;
+    background-color: #1F112A;
     border: none;
-    padding: 8px 16px;
-    border-radius: 20px;
+    padding: 8px 20px;
+    color: aliceblue;
+    border-radius: 2rem;
+    margin-top: 10px;
+    margin-left: 8px;
     cursor: pointer;
     transition: background 0.3s ease;
 }
 
 form button:hover {
-    background-color: #1c1124;
+    background-color: #1F112A;
 }
 .perfil-logado {
     display: flex;
